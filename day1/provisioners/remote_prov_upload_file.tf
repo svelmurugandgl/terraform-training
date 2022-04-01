@@ -18,7 +18,7 @@ resource "aws_instance" "mytraining" {
    ami = "ami-082b5a644766e0e6f"
    instance_type = "t2.micro"
    key_name               = var.key_name
-   vpc_security_group_ids  = [aws_security_group.port_twentytwo.id]
+   vpc_security_group_ids  = [aws_security_group.t.id]
 
 }
 
@@ -61,4 +61,10 @@ resource "aws_security_group" "port_twentytwo" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+}
+
+
+resource "local_file" "aws_key" {
+  content = tls_private_key.training.private_key_pem
+  filename = "tftraining.pem"
 }
