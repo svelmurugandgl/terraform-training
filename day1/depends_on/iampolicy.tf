@@ -2,7 +2,7 @@ resource "aws_iam_role_policy" "application_policy" {
   depends_on = [
     aws_iam_role.application_role
   ]
-  name   = "application_policy-${random_string.random_name.result}"
+  name   = "application_policy-${random_string.tftraining.result}"
   role   = aws_iam_role.application_role.id
   policy = <<EOF
 {

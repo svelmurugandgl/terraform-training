@@ -18,7 +18,7 @@ resource "aws_instance" "mytraining" {
    ami = "ami-082b5a644766e0e6f"
    instance_type = "t2.micro"
    key_name               = var.key_name
-   vpc_security_group_ids  = [aws_security_group.t.id]
+   vpc_security_group_ids  = [aws_security_group.port_twentytwo.id]
 
 }
 
@@ -36,7 +36,7 @@ resource "null_resource" "mytraining" {
   }
   provisioner "file" {
     source      = "test.txt"
-    destination = "/tmp/"
+    destination = "/tmp/test.txt"
   }
 
 }

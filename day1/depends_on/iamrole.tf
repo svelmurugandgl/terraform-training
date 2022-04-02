@@ -1,5 +1,5 @@
 resource "aws_iam_role" "application_role" {
-  name               = "customer_role-${random_string.random_name.result}"
+  name               = "customer_role-${random_string.tftraining.result}"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
